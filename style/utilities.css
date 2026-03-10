@@ -1,0 +1,21 @@
+/* 工具类：颜色、字体、对齐等 */
+.text-red { color: red; }
+.text-center { text-align: center; }
+
+.附注 {
+    color: hsl(0, 0%, 50%);      /* 中性灰 */
+    font-style: italic;            /* 斜体 */
+    font-weight: bold;             /* 加粗 */
+    font-size: 1em;              /* 1倍字号 */
+    margin-top: 0.1em;             /* 段前 0.1em */
+    /* 根据需要添加其他样式 */
+}
+
+.引用作者 {
+    color: hsl(0, 0%, 50%);      /* 中性灰 */
+    font-style: italic;            /* 斜体 */
+    font-weight: bold;             /* 加粗 */
+    margin-top: 0.1em;             /* 段前 0.1em */
+    text-align: right;            /*向右对齐*/
+    /* 根据需要添加其他样式 */
+}

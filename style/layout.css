@@ -40,3 +40,9 @@
     margin: 0.3em 0;
     padding: 0.5em 1em;
 }
+
+/* 限制内容区域最大宽度为144个字符（约1400px） */
+.markdown-section {
+    max-width: 144ch !important;  /* ch单位基于当前字体0的宽度 */
+    margin: 0 auto;              /* 居中显示 */
+}

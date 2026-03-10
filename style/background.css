@@ -1,0 +1,15 @@
+/* 封面背景图 */
+
+.cover {
+    background-image: url('/images/coverpage.jpg') !important;
+    background-size: cover !important;            /* 覆盖整个封面区域，可能裁剪 */
+    background-position: center !important;       /* 居中显示 */
+    background-repeat: no-repeat !important;      /* 不重复 */
+}
+
+.cover .cover-main {
+    background-color: rgba(255, 255, 255, 0.3);  /* 半透明黑色遮罩 */
+    padding: 20px;
+    border-radius: 5px;
+    color: #575757;  /* 文字改为白色 */
+}

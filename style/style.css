@@ -1,0 +1,29 @@
+
+
+/* 字体大小类 */
+.text-small { font-size: 0.8em; }
+.text-large { font-size: 1.5em; }
+.text-huge { font-size: 2em; }
+
+/* 字体类 */
+.font-kai { font-family: '楷体', 'KaiTi', serif; }
+.font-hei { font-family: 'Microsoft YaHei', '黑体', sans-serif; }
+
+/* 对齐类 */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+/* 组合类：高亮块 */
+.highlight {
+    background-color: #ffffcc;
+    padding: 10px;
+    border-left: 4px solid #ffcc00;
+    margin: 10px 0;
+}
+
+/* 限制内容区域最大宽度为144个字符（约1400px） */
+.markdown-section {
+    max-width: 144ch !important;  /* ch单位基于当前字体0的宽度 */
+    margin: 0 auto;              /* 居中显示 */
+}

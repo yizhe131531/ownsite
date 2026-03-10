@@ -1,0 +1,11 @@
+- [首页](/)
+- 关于我
+  - [个人简介](/README.md)
+  - [联系方式](/about/contact.md)
+- 爱好与创作
+  - [电子游戏](/hobbies/games.md)
+  - [TRPG](/hobbies/trpg.md)
+  - [文艺点评](/hobbies/reviews.md)
+- 思想笔记
+  - [哲学随想](/thoughts/philosophy.md)
+  - [政治倾向](/thoughts/politics.md)
