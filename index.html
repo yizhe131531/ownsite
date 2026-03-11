@@ -13,13 +13,16 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <!-- 默认主题 -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+    <!-- 侧边栏折叠样式 -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css">
     <!-- 自定义样式，拆分为多个文件 -->
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="/style/layout.css">
-    <link rel="stylesheet" href="/style/color.css">
+    <!-- <link rel="stylesheet" href="/style/color.css"> -->
     <link rel="stylesheet" href="/style/components.css">
     <link rel="stylesheet" href="/style/utilities.css">
     <link rel="stylesheet" href="/style/background.css">
+    <link rel="stylesheet" href="/style/dnd.css">
 </head>
 
 <body>
@@ -27,8 +30,11 @@
     <div id="app">加载中...</div>
     <script>
         window.$docsify = {
+            // ... 其他配置
+            basePath: '/docs/',   // 告诉 docsify 所有 .md 文件都在 /docs/ 下
+            homepage: 'homePage.md',   // 指定首页文件
             // 项目名称
-            //name: '学习',
+            name: 'Catalogue',
             // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
             //repo: ,
             // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
@@ -44,7 +50,7 @@
             // 最大支持渲染的标题层级
             maxLevel: 10,
             // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
-            subMaxLevel: 0,
+            subMaxLevel: 2,
             // 小屏设备下合并导航栏到侧边栏
             mergeNavbar: true,
             auto2top: true,
@@ -58,6 +64,7 @@
                 previousText: '上一章节',
                 nextText: '下一章节',
             },
+
             /*搜索相关设置*/
             search: {
                 paths: 'auto',// 注意：仅适用于 paths: 'auto' 模式
@@ -73,6 +80,7 @@
                 namespace: 'Docsify-Guide',
             },
 
+            /*页面计数相关设置*/
             count: {
                 countable: true,
                 position: 'top',
@@ -85,6 +93,36 @@
             }
         }
     </script>
+
+    <script>
+    // 插件：根据路径给 body 添加主题类（用于不同页面不同样式）
+    window.$docsify = window.$docsify || {};
+    window.$docsify.plugins = (window.$docsify.plugins || []).concat(function(hook, vm) {
+        hook.doneEach(function() {
+        // 获取当前页面路径，如 "/notes/linux"
+        var path = vm.route.path;
+        // 提取第一级目录（例如从 "/notes/linux" 中提取 "notes"）
+        var parts = path.split('/');
+        var category = parts[1] || 'home';  // parts[0] 是空字符串，所以取 parts[1]
+        // 清理非法字符，确保类名安全
+        category = category.replace(/[^a-zA-Z0-9_-]/g, '');
+        
+        var body = document.body;
+        // 获取当前所有类名，过滤掉旧的分类类
+        var classes = body.className.split(' ');
+        var newClasses = classes.filter(function(c) {
+            return !c.startsWith('page-theme-');
+        });
+        // 添加新分类类
+        newClasses.push('page-theme-' + category);
+        // 重新设置 className（保留原有 docsify 类）
+        body.className = newClasses.join(' ');
+        });
+    });
+    </script>
+
+    <!-- 侧边栏展开与收起 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
     <!-- MathJax -->
     <script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify-latex@0"></script>
@@ -121,7 +159,6 @@
     </script>
     <!--字数统计-->
     <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-
 
 </body>
 </html>

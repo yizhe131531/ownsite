@@ -1,0 +1,305 @@
+@charset "utf-8";
+
+/* ========================================
+   文件：dnd.css
+   用途：TRPG 页面专用样式（仅当 body 含有 page-theme-TRPG 类时生效）
+   命名空间：所有规则以 body.page-theme-TRPG 开头，确保不影响其他页面
+   最后更新：2026-03-11
+   ======================================== */
+
+/* ---------- 全局基础设置 ---------- */
+/* 设置 TRPG 页面的基础字体、字号、字族 */
+body.page-theme-TRPG {
+    font-family: 'Microsoft YaHei', sans-serif;  /* 使用微软雅黑，备选无衬线字体 */
+    font-style: normal;                           /* 正常字体样式（非斜体） */
+    font-size: 18px;                               /* 基础字号 18 像素，方便计算 rem */
+    /* text-indent: 2em;  已注释：全局首行缩进（暂不需要，以免影响标题等元素） */
+}
+
+/* ---------- 段落首行缩进（当前不需要，全部注释） ---------- */
+/*
+body.page-theme-TRPG p {
+    text-indent: 2em;    // 如果需要段落首行缩进，取消注释此行
+}
+*/
+
+/* ---------- 列表项基础样式 ---------- */
+body.page-theme-TRPG li {
+    font-weight: normal;   /* 列表文字正常粗细（不加粗） */
+    text-indent: 0;         /* 列表项自身文字无首行缩进 */
+}
+
+/* 自定义段落类（可能用于特殊列表项，保留原样式） */
+body.page-theme-TRPG p.li_custom {
+    font-weight: normal;
+    color: black;
+}
+
+/* ---------- 引用块内的斜体文字使用楷体 ---------- */
+body.page-theme-TRPG blockquote em {
+    font-family: "KaiTi";   /* 引用中的斜体用楷体，增加文艺感 */
+}
+
+/* ---------- 文件头样式（原文件保留，用途未知，可能用于特殊区块） ---------- */
+body.page-theme-TRPG .fileheader {
+    background: none;           /* 无背景 */
+    font-size: 2em;             /* 字号放大两倍 */
+    padding-left: 0;             /* 左边距为0 */
+}
+body.page-theme-TRPG .fileheader:hover {
+    background-color: transparent;      /* 悬停时背景透明 */
+    border-bottom-color: transparent;    /* 悬停时下边框透明 */
+}
+
+/* ---------- 水平分割块（原样式保留） ---------- */
+body.page-theme-TRPG .hr_block {
+    margin-left: 2em;    /* 左右外边距2字符 */
+    margin-right: 2em;
+}
+
+/* ---------- 重置标题、段落、列表的内外边距、边框等，但保留行高不重置（下面会单独设置） ---------- */
+body.page-theme-TRPG h1,
+body.page-theme-TRPG h2,
+body.page-theme-TRPG h3,
+body.page-theme-TRPG h4,
+body.page-theme-TRPG h5,
+body.page-theme-TRPG h6,
+body.page-theme-TRPG p,
+body.page-theme-TRPG li {
+    background-color: transparent;  /* 背景透明 */
+    border-bottom: transparent;      /* 无下边框 */
+    padding: 0;                       /* 内边距归零 */
+    margin: 0;                        /* 外边距归零 */
+    overflow: initial;                /* 溢出默认处理 */
+    font-style: normal;               /* 正常字体 */
+    font-size: 18px;                  /* 统一基础字号，标题可单独覆盖 */
+    padding-left: 0;                   /* 左内边距归零 */
+    /* 不设置 line-height，由后续规则单独控制 */
+}
+
+/* 标题悬停效果重置（去掉默认下划线等） */
+body.page-theme-TRPG h1:hover,
+body.page-theme-TRPG h2:hover,
+body.page-theme-TRPG h3:hover,
+body.page-theme-TRPG h4:hover,
+body.page-theme-TRPG h5:hover,
+body.page-theme-TRPG h6:hover {
+    background-color: transparent;
+    border-bottom-color: transparent;
+}
+
+/* ---------- 正文行高设置（根据用户要求调整为 3rem） ---------- */
+/* 注意：rem 相对于根元素（html）的字体大小，默认 1rem = 16px（若未修改），3rem = 48px */
+body.page-theme-TRPG p,
+body.page-theme-TRPG li,
+body.page-theme-TRPG blockquote {
+    line-height: 2rem;   /* 行高 2rem，增大间距，避免拥挤 */
+}
+
+/* ---------- 标题具体样式 ---------- */
+body.page-theme-TRPG h1 {
+    font-weight: bold;      /* 加粗 */
+    font-size: 2em;         /* 相对父元素 2 倍字号（约 36px） */
+    line-height: 1.6em;     /* 标题自身行高保持适中，不随正文改变 */
+}
+body.page-theme-TRPG h2 {
+    margin-top: 1em;        /* 上方外边距 1 字符 */
+    font-weight: bold;
+    font-size: 1.2em;       /* 1.2 倍基础字号（约 21.6px） */
+    line-height: 1.3em;
+}
+
+/* 标题颜色（但注意 docsify 将标题文字包裹在 .anchor span 中，所以还需单独覆盖 span） */
+body.page-theme-TRPG h1,
+body.page-theme-TRPG h1:hover,
+body.page-theme-TRPG h2,
+body.page-theme-TRPG h2:hover {
+    color: #800000;         /* 暗红色 */
+}
+
+/* 真正覆盖标题内文字颜色（直接作用于 .anchor span） */
+body.page-theme-TRPG .anchor span {
+    color: #800000;         /* 覆盖默认的 #34495e */
+}
+
+body.page-theme-TRPG h3 .anchor span,
+body.page-theme-TRPG h3:hover .anchor span{
+    color: #008F00;         /* 三级标题绿色 */
+}
+body.page-theme-TRPG h4 .anchor span,
+body.page-theme-TRPG h4:hover .anchor span {
+    color: #008E82;         /* 四级标题青绿色 */
+}
+
+/* ---------- 列表缩进 ---------- */
+body.page-theme-TRPG ul {
+    margin: 0;               /* 列表整体外边距归零 */
+    margin-left: 2em;        /* 左外边距 2 字符，保持层次感 */
+}
+
+/* ---------- 表格样式 ---------- */
+body.page-theme-TRPG table .anchor span {
+    width: 100%;              /* 表格占满容器宽度 */
+    border-collapse: collapse; /* 边框合并 */
+}
+/* 偶数行背景色 */
+body.page-theme-TRPG table tr:nth-child(even) {
+    background-color: #f2f2f2;  /* 浅灰色 */
+}
+/* 奇数行背景色 */
+body.page-theme-TRPG table tr:nth-child(odd) {
+    background-color: #c0d8e6;  /* 浅蓝色 */
+}
+/* 单元格边框颜色加深 */
+body.page-theme-TRPG table td,
+body.page-theme-TRPG table th {
+    border: 1px solid #999;     /* 深灰色边框 */
+    padding: 6px 13px;          /* 与默认主题一致，可调整 */
+}
+
+/* ---------- 普通链接样式（覆盖 vue.css 的 .markdown-section a） ---------- */
+body.page-theme-TRPG .markdown-section a {
+    color: #a52a2a;             /* 棕色链接 */
+    font-weight: 600;            /* 半粗 */
+    text-decoration: none;       /* 无下划线 */
+}
+body.page-theme-TRPG .markdown-section a:hover {
+    text-decoration: underline;  /* 悬停时加下划线 */
+}
+
+/* ---------- 行内代码样式 ---------- */
+body.page-theme-TRPG .markdown-section code {
+    color: #b36b00;             /* 深橙色文字 */
+    background-color: #f0f0f0;  /* 浅灰背景 */
+    padding: 2px 4px;           /* 内边距 */
+    border-radius: 3px;         /* 小圆角 */
+}
+
+/* ---------- 代码块样式 ---------- */
+body.page-theme-TRPG .markdown-section pre {
+    background-color: #2d2d2d;  /* 深色背景 */
+    color: #ccc;                /* 浅灰文字 */
+    border-radius: 5px;         /* 圆角 */
+    padding: 1em;               /* 内边距 */
+    line-height: 1.5;           /* 代码块内行高（避免被 3rem 影响） */
+}
+body.page-theme-TRPG .markdown-section pre code {
+    color: inherit;             /* 继承 pre 的文字颜色 */
+    background: none;           /* 无额外背景 */
+    padding: 0;                 /* 无内边距 */
+}
+
+/* ---------- 引用块样式 ---------- */
+body.page-theme-TRPG .markdown-section blockquote {
+    border-left: 4px solid #800000;   /* 暗红左边框 */
+    background-color: #f9f0f0;        /* 浅红背景 */
+    color: #333;                      /* 深灰文字 */
+    padding: 0.5em 1em;               /* 内边距 */
+    margin: 1em 0;                    /* 上下外边距 */
+    /* 行高已在上方统一设置为 3rem，若有需要可单独覆盖 */
+}
+
+/* ---------- 强调文本（斜体） ---------- */
+body.page-theme-TRPG .markdown-section em {
+    color: #666;                      /* 中灰色 */
+    font-style: italic;                /* 斜体（保留） */
+}
+
+/* ---------- 加粗文本 ---------- */
+body.page-theme-TRPG .markdown-section strong {
+    color: #2c3e50;                   /* 深蓝灰（与默认一致或自定义） */
+    font-weight: 700;                  /* 加粗 */
+}
+
+/* 加粗斜体（同时有 strong 和 em）设为蓝紫色 */
+body.page-theme-TRPG .markdown-section strong em,
+body.page-theme-TRPG .markdown-section em strong {
+    color: #8a2be2;  /* 蓝紫色，也可用 #9370db 等 */
+    /* 保留原有的加粗和斜体效果，无需重复设置 font-weight 和 font-style，它们会被继承或保留 */
+}
+
+/* ---------- 怪物图鉴专用样式（自定义标签，原文件保留） ---------- */
+body.page-theme-TRPG t1 {
+    color: #800000;
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 1.6em;
+}
+body.page-theme-TRPG t2 {
+    display: block;
+    color: #800000;
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 1.3em;
+    margin-top: 1em;
+}
+
+/* ---------- 怪物容器 ---------- */
+body.page-theme-TRPG .monster_container {
+    background-color: #F8F8F6;
+    border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    line-height: 1.5em;                /* 容器内行高保持适中 */
+    border: double 4px #000;            /* 双层黑边效果 */
+    border-width: 4px;
+}
+
+body.page-theme-TRPG .monster_container hr {
+    height: 4px;                /* 加粗 */
+    background-color: #959595;     /* 深灰色，也可用 #000 纯黑 */
+    border: none;               /* 移除默认边框 */
+    margin: 0.2em 0;            /* 保留你之前要求的紧凑行高 */
+}
+
+body.page-theme-TRPG .monster_container strong {
+    color: #800000;
+}
+
+/* ---------- 怪物属性区域 ---------- */
+body.page-theme-TRPG .monster_ability {
+    font-size: 14px;
+    text-indent: 0;                     /* 无首行缩进 */
+}
+
+/* 属性表格（用于内联显示属性） */
+body.page-theme-TRPG .monster_ability table {
+    width: 180px;
+    margin: 0 5px 0 0;
+    border: none;
+    border-collapse: collapse;
+    display: inline-block;
+    vertical-align: top;
+    background: transparent;
+}
+body.page-theme-TRPG .monster_ability tbody {
+    background: transparent;
+}
+body.page-theme-TRPG .monster_ability td {
+    padding: 0px 10px;
+    border: none;
+    background: none;
+    text-align: center;
+}
+body.page-theme-TRPG .monster_ability th {
+    font-weight: bold;
+    background: transparent !important;
+    border: none;
+    color: black;
+}
+body.page-theme-TRPG .monster_ability table tr:nth-child(odd) {
+    background-color: transparent;
+}
+body.page-theme-TRPG .monster_ability strong {
+    font-weight: bold;
+    color: black;
+}
+body.page-theme-TRPG .monster_ability tr:nth-child(2) td:first-child,
+body.page-theme-TRPG .monster_ability tr:nth-child(3) td:first-child {
+    font-weight: bold;
+}
+/* 交替背景色（特殊） */
+body.page-theme-TRPG .monster_ability tr:nth-child(2) td { background: #E9E3D6; }
+body.page-theme-TRPG .monster_ability tr:nth-child(2) td:nth-child(n+3) { background: #D8D0C9; }
+body.page-theme-TRPG .monster_ability tr:nth-child(3) td { background: #D2D6CE; }
+body.page-theme-TRPG .monster_ability tr:nth-child(3) td:nth-child(n+3) { background: #CBC6C6; }

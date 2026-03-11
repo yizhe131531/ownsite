@@ -11,6 +11,15 @@
     /* 根据需要添加其他样式 */
 }
 
+附注 {
+    color: hsl(0, 0%, 50%);      /* 中性灰 */
+    font-style: italic;            /* 斜体 */
+    font-weight: bold;             /* 加粗 */
+    font-size: 1em;              /* 1倍字号 */
+    margin-top: 0.1em;             /* 段前 0.1em */
+    /* 根据需要添加其他样式 */
+}
+
 .引用作者 {
     color: hsl(0, 0%, 50%);      /* 中性灰 */
     font-style: italic;            /* 斜体 */
@@ -18,4 +27,161 @@
     margin-top: 0.1em;             /* 段前 0.1em */
     text-align: right;            /*向右对齐*/
     /* 根据需要添加其他样式 */
+}
+
+/* 正文强调 */
+.强调 {
+    color: #d14;                 /* 暗红色 */
+    font-weight: 600;
+    background: linear-gradient(120deg, transparent 0%, transparent 50%, #ffe6e6 80%);
+    padding: 0 4px;
+    border-radius: 3px;
+}
+
+/* 引文 */
+.引文 {
+    font-style: italic;
+    color: #666;
+    border-left: 3px solid #ccc;
+    padding-left: 1em;
+    margin: 1em 0;
+    font-size: 0.95em;
+    font-weight: bold;             /* 加粗 */
+}
+
+/* 代码风格 */
+.行内代码 {
+    font-family: 'Consolas', monospace;
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #c7254e;
+    font-size: 0.9em;
+    border: 1px solid #e1e1e8;
+}
+
+/* 标签（小药丸） */
+.标签 {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 500;
+    margin-right: 4px;
+    border: 1px solid #bae6fd;
+}
+
+/* 温和提示框 */
+.提示框 {
+    background: #f8fafc;
+    border-left: 4px solid #3b82f6;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* 警示框 */
+.警示框 {
+    background: #fff7ed;
+    border-left: 4px solid #f97316;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* 信息卡片 */
+.卡片 {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 6px -2px rgba(0,0,0,0.05);
+    transition: transform 0.1s ease;
+}
+.卡片:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px -2px rgba(0,0,0,0.08);
+}
+
+/* 分隔线 */
+.柔和分隔线 {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ddd, transparent);
+    margin: 24px 0;
+}
+
+/* 两栏布局（配合flex使用） */
+.双栏 {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.双栏 > * {
+    flex: 1 1 300px;
+}
+
+/* 毛玻璃效果 */
+.毛玻璃 {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* 浮动图片容器 */
+.浮图右 {
+    float: right;
+    margin: 0 0 12px 20px;
+    max-width: 40%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 手写感 */
+.手写 {
+    font-family: 'KaiTi', '楷体', cursive;
+    color: #4a4a4a;
+    background: #fef9e7;
+    padding: 8px 16px;
+    border-radius: 20px 8px 20px 8px;
+    box-shadow: 3px 3px 0 #e0d6b5;
+}
+
+/* 荧光笔 */
+.荧光笔 {
+    background: linear-gradient(180deg, transparent 60%, #fef08a 60%);
+    padding: 0 4px;
+    font-weight: 500;
+}
+
+/* 打字机效果（等宽+闪烁光标） */
+.打字机 {
+    font-family: 'Courier New', monospace;
+    border-right: 2px solid #333;
+    animation: blink 1s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 0.8em;             /* 段前 0.8em */
+}
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: #333; }
+}
+
+/* 怀旧报纸 */
+.报纸 {
+    background: #f5f3f0;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 1px dotted #ccc;
+    font-family: 'Times New Roman', serif;
 }
