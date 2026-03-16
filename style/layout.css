@@ -16,7 +16,7 @@
 .markdown-section p {
     margin-top: 0;
     margin-bottom: 0.6em;    /* 段落之间的间距 */
-    line-height: 1.6;        /* 正文行高保持不变，保证可读性 */
+    line-height: 2.0;        /* 正文行高保持不变，保证可读性 */
 }
 
 /* 3. 调整列表项间距（可选） */
@@ -45,4 +45,8 @@
 .markdown-section {
     max-width: 144ch !important;  /* ch单位基于当前字体0的宽度 */
     margin: 0 auto;              /* 居中显示 */
+}
+
+body.page-theme-Notes .markdown-section p {
+    text-indent: 2em;   /* 缩进2个汉字宽度（相对于当前字体大小） */
 }
